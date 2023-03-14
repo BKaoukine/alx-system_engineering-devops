@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {{a..n}{a..n},{p..z}{p..z}}
+echo {{a..o}{a..n},{p..z}{a..o},{a..o}{p..z},{o..z}{p..z}}
