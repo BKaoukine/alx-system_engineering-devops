@@ -1,2 +1,2 @@
 #!/bin/bash
-tr *[:alpha:] /etc/ssh/sshd_config
+tr '^letter' /etc/ssh/sshd_config
