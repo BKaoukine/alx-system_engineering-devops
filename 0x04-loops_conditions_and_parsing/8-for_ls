@@ -4,10 +4,9 @@
 #   In a list format
 #   Where only the part of the name after the first dash is displayed
 
-find . -maxdepth 1 -type f -name '*-*' | cut -f 2 -d "-" > LIST
+ls | cut -f 2 -d "-"> LIST;
 
-IFS=$'\n' read -d '' -ra files < LIST
-
-for i in "${files[@]}"; do
-    echo "$i"
-done
+for i in $(cat LIST);
+    do
+        echo "$i"
+    done
