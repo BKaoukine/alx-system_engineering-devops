@@ -7,11 +7,11 @@ echo "Hour: $hour"
 while [[ $hour -lt 12 ]];
     do
         minut=$((minut + 1))
-        echo -e "$minut\n"
+        echo "$minut"
 
         if [[ $minut -eq 59 ]]; then
             hour=$((hour + 1))
-            echo -e "Hour: $hour\n"
+            echo "Hour: $hour"
             minut=0
         fi
 
