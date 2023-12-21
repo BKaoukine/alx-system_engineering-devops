@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#This script prints a string 10 times
+str="Best School"
+counter=10
+
+until [[ $counter -eq 0 ]];
+    do
+        echo "$str";
+        ((counter--))
+    done
