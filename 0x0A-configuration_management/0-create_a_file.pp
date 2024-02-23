@@ -1,3 +1,4 @@
+#Manifist Creat a file with permissions.
 file { '/tmp/school':
   ensure  => 'file',     # Ensures it's a regular file
   mode    => '0744',
