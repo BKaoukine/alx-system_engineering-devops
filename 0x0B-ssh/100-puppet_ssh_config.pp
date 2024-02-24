@@ -1,13 +1,16 @@
-#Manifest to connect to server.
+# setting up the config file
 
-file { '/home/bk/.ssh/config':
-  ensure  => file,
-  mode    => '0600',
-  content => "
-    Host ubuntu
-        IdentityFile ~/.ssh/school
-        PasswordAuthentication no
-  ",
-  owner   => 'bk',
-  group   => 'bk',
+file_line { 'Turn off passwd auth':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+  replace => true,
 }
+
+file_line { 'Delare identity file':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '     IdentityFile ~/.ssh/school',
+  replace => true,
+}
+
