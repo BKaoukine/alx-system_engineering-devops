@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# install and run nginx server
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo bash -c 'sed -i "/server {/a\\
+server {\
+        listen 80;\
+        server_name example.com;\
+        return 301 $scheme:https://www.youtube.com/watch?v=QH2-TGUlwu4$request_uri;\
+}\
+" /etc/nginx/sites-available/default'
+sudo service nginx start
