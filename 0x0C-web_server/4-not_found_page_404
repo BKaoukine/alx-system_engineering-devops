@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting
+# Configure your Nginx server so that /xyz returns HTTP 404 error code
+
+sudo apt-get -y update
+sudo apt -y install nginx
+
+file_index="/var/www/html/index.html"
+file_error="/var/www/html/error404.html"
+file_re="/etc/nginx/sites-available/default"
+
+# Create the Nginx configuration file
+echo 'server {
+    listen 80;
+    server_name _;
+
+    location /xyz {
+        root /var/www/html;
+        return 404 error404.html;
+    }
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}' | sudo tee "$file_re"
+
+# Create the index.html file
+sudo bash -c "echo 'Hello World!' > $file_index"
+
+# Create the error404.html file
+sudo bash -c "echo 'Ceci n'est pas une page.' > $file_error"
+
+# Restart Nginx service
+sudo systemctl restart nginx
