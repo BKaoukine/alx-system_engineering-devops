@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Update the system
+sudo apt-get update
+
+sudo apt-get install haproxy -y
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+sudo sed -i "$ a\listen 369335-lb-01\n\tbind *:80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 369335-web-01 100.26.136.137 check\n\tserver 369335-web-02 34.224.2.22 check" /etc/haproxy/haproxy.cfg
+sudo service haproxy start
+
+# Restart HAProxy
+sudo systemctl restart haproxy
+
+# Enable HAProxy to start on boot
+sudo systemctl enable haproxy
