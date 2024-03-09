@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script that configures a server to listen on port 80
+# the script can be used to fix this bug whenever it's encountred
+
+cd /etc/nginx/sites-enabled/ || exit
+rm default
+ln -s /etc/nginx/sites-available/default default
+service nginx restart
