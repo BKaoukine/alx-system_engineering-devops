@@ -3,9 +3,8 @@
 
 API and returns the number of subscribers.
 """
-
-import sys
 import requests
+import sys
 
 
 def number_of_subscribers(subreddit):
