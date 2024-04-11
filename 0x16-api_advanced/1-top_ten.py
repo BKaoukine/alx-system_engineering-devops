@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-"""Top_Ten function that queries the Reddit.
-
-API and returns the top 10 hot posts of a given subreddit.
 """
-
-
+this doc for module
+"""
 import requests
-import sys
-headers = {"User-Agent": "MyCustomUserAgent/1.0"}
 
 
 def top_ten(subreddit):
-    """Top_Ten returns top 10 hot posts of a given subreddit."""
+    """method doc"""
     url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {'User-agent': 'python-requests/2.22.0'}
     response = requests.get(url, allow_redirects=False, headers=headers)
