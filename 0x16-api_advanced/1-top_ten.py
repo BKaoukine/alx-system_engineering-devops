@@ -6,8 +6,6 @@ API and returns the top 10 hot posts of a given subreddit.
 
 
 import requests
-import sys
-headers = {"User-Agent": "MyCustomUserAgent/1.0"}
 
 
 def top_ten(subreddit):
